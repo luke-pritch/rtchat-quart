@@ -1,15 +1,35 @@
 # Real-Time Chat Application
 
-A modern real-time chat application built with Quart (Python backend) and Astro + React (frontend). This application demonstrates real-time communication using WebSockets and modern web development practices.
+A modern real-time chat application built with **Quart** (Python async web framework) and React. This project demonstrates my expertise in building scalable, real-time applications using modern async Python practices and WebSocket communication.
 
-## Features
+## Demo
 
-- Real-time messaging using WebSockets
-- Modern UI with React components
-- Static site generation with Astro
-- Asynchronous backend with Quart
-- Room-based chat system
-- Username customization
+![Demo](./frontend/chat.png)
+
+## Technical Highlights
+
+- **Async-First Architecture**: Built with **Quart**, a modern async web framework that provides Flask-like syntax with async/await support
+- **Real-time Communication**: Implemented using WebSockets with Quart's native WebSocket support
+- **Type Safety**: Full TypeScript implementation in the frontend
+- **Modern Frontend**: React components with Astro for static site generation
+- **Scalable Design**: Room-based chat system with efficient message handling
+- **Developer Experience**: Comprehensive development setup with hot-reloading
+
+## Tech Stack
+
+### Backend
+
+- **Quart** - Async web framework
+- **Hypercorn** - ASGI server
+- **WebSockets** - Real-time communication
+- **Python 3.11** - Modern Python features and type hints
+
+### Frontend
+
+- **React** - UI components
+- **TypeScript** - Type safety
+- **Astro** - Static site generation
+- **WebSocket API** - Client-side real-time communication
 
 ## Prerequisites
 
@@ -64,7 +84,7 @@ pnpm run build
 
 ```
 chat-app/
-├── /frontend/              # Astro + React frontend
+├── /frontend/              # React + TypeScript frontend
 │   ├── /src/
 │   │   ├── /components/   # React components
 │   │   ├── /pages/        # Astro pages
@@ -78,27 +98,14 @@ chat-app/
 └── README.md            # Project documentation
 ```
 
-## Technologies Used
+## Key Features
 
-- **Backend**:
-
-  - Quart (Python async web framework)
-  - Hypercorn (ASGI server)
-  - WebSockets for real-time communication
-
-- **Frontend**:
-  - Astro (Static site generation)
-  - React (UI components)
-  - TypeScript (Type safety)
-  - WebSocket API
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- **Async Web Framework**: Leverages Quart's async capabilities for efficient request handling
+- **Real-time Updates**: WebSocket-based communication for instant message delivery
+- **Type Safety**: Full TypeScript implementation ensuring code reliability
+- **Modern UI**: Clean, responsive interface built with React
+- **Room Management**: Support for multiple chat rooms with isolated conversations
+- **User Customization**: Username and room selection features
 
 ## License
 
