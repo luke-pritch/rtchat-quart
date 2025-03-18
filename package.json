@@ -1,0 +1,14 @@
+{
+  "name": "rtchat-quart",
+  "version": "1.0.0",
+  "description": "Real-time chat application using Quart and Astro",
+  "scripts": {
+    "start": "concurrently \"cd backend && pipenv run hypercorn app:app --bind 0.0.0.0:5001\" \"cd frontend && pnpm run dev\"",
+    "install:all": "pnpm install && cd frontend && pnpm install && cd ../backend && pipenv install",
+    "dev": "pnpm run start",
+    "build": "cd frontend && pnpm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
