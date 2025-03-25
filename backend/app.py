@@ -24,9 +24,19 @@ schema = QuartSchema(app)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Constants
+MAX_MESSAGES_PER_ROOM = 1000
+MESSAGE_CLEANUP_THRESHOLD = 800
+
 # In-memory storage
 rooms: Dict[str, Set] = {"general": set()}
 messages: Dict[str, list] = {"general": []}
+
+def cleanup_old_messages(room: str) -> None:
+    """Remove oldest messages when threshold is exceeded."""
+    if len(messages[room]) > MAX_MESSAGES_PER_ROOM:
+        messages[room] = messages[room][-MESSAGE_CLEANUP_THRESHOLD:]
+        logger.info(f"Cleaned up messages in room {room}. Current count: {len(messages[room])}")
 
 # Pydantic models
 class MessageRequest(BaseModel):
@@ -73,6 +83,7 @@ async def ws(room: str):
                 }
                 
                 messages[room].append(msg)
+                cleanup_old_messages(room)  # Check and cleanup if needed
                 for c in rooms[room]:
                     await c.send(json.dumps(msg))
                     
